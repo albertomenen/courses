@@ -30,12 +30,12 @@ const UserSchema = new Schema({
   },
   is_instructor: {
     type: Boolean,
-    required: true
+    //required: true
   },
   instructor: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Instructor",
-    required: true
+    //ref: "Instructor",
+    //required: true
   },
 
   

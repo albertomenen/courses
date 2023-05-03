@@ -57,7 +57,6 @@ router.post('/new', isAuthenticated, async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
     console.log('Inside PUT /course/:id handler');
     try {
-  
       const { id } = req.params;
       const course = await Course.findByIdAndUpdate(id, req.body, {
         new: true,
