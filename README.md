@@ -7,7 +7,6 @@ This is a the backend repository for the React application `app's name`.
 
 ## Instructions
 
-When cloning the project, change the <code>sample.env</code> file name for <code>.env</code>. The project will run on **PORT 8000**.
 
 Then, run:
 ```bash
@@ -31,19 +30,24 @@ npm run seed
 
 ## Models
 
-### User
+The Models using for this app are: 
 
-Users in the database have the following properties:
+- Courses: Every Course is related to a Instructor ID
+- Instructors
+- Payments
+- Users
 
-```js
-{
-  "username": String,
-  "email": String,
-  "hashedPassword": String
-}
+
 ```
 
+The technology used for the payment in this app is Stripe.
+
 ---
+
+
+How the system works.
+
+SiestaFunds is a company where everyone can update a course with a video or some information about a nice portfolio. 
 
 ## API endpoints and usage 
 
