@@ -41,11 +41,10 @@ router.post('/new', isAuthenticated, async (req, res, next) => {
   const { title, description, price, instructorId } = req.body;
   const userId = req.payload;
 
-  await Course.create({ userId, title, description, price, instructor: instructorId })
+  await Course.create({ title, description, price, instructor: instructorId })
     .then(response => res.json(response))
     .catch(err => res.json(err));
 });
-
 
 
 // @desc    Update a course by ID

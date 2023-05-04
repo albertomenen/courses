@@ -8,12 +8,10 @@ const CourseSchema = new Schema (
       description: String,
       price: Number,
 
-      // Esta parte se debe agregar si y solo si tenemos un instructor ya creado
-      
-      // instructor: {
-      //   type: Schema.Types.ObjectId,
-      //   ref: "Instructor",
-      // }
+      instructor: {
+        type: Schema.Types.ObjectId,
+        ref: "Instructor"
+      }
 
        
     }
