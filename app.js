@@ -11,19 +11,12 @@ const { isAuthenticated } = require("./middlewares/jwt");
 // Routers require
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
-<<<<<<< HEAD
-const clientRouter = require("./routes/client");
-const taskRouter = require("./routes/task");
-const listRouter = require("./routes/list");
-const userRouter = require("./routes/user")
-=======
 const courseRouter = require("./routes/course");
 const instructorRouter = require("./routes/instructor");
 const purchaseRouter = require("./routes/purchase");
 const userRouter = require("./routes/user")
 const paymentRouter = require('./routes/paymentRoutes');
 
->>>>>>> master
 
 const app = express(); 
 
