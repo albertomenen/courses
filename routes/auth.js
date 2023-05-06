@@ -74,11 +74,7 @@ router.post('/login', async (req, res, next) => {
         // Use the jwt middleware to create de token
         const authToken = jwt.sign(
           payload,
-<<<<<<< HEAD
-          process.env.TOKEN_SECRET,
-=======
           process.env.JWT_SECRET,
->>>>>>> master
           { algorithm: 'HS256', expiresIn: "30d" }
         );
         res.status(200).json({ authToken: authToken })

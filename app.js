@@ -37,18 +37,11 @@ app.use(express.urlencoded({ extended: false }));
 // routes intro
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-<<<<<<< HEAD
-app.use("/client", isAuthenticated, clientRouter)
-app.use("/task",isAuthenticated, taskRouter)
-app.use("/list" ,isAuthenticated, listRouter)
-app.use("/user" , userRouter)
-=======
 app.use("/course", isAuthenticated, courseRouter)
 app.use("/instructor",isAuthenticated, instructorRouter)
 app.use("/purchase" ,isAuthenticated, purchaseRouter)
 app.use("/user" , userRouter)
 app.use("/api/payment", paymentRouter)
->>>>>>> master
 
 
 // Route controler 
