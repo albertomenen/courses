@@ -34,7 +34,6 @@ router.post('/signup', async (req, res, next) => {
       return;
     } else {
       const salt = bcrypt.genSaltSync(saltRounds);
-      console.log("Helo")
       const hashedPassword = bcrypt.hashSync(password, salt);
       const newUser = await User.create({ email, hashedPassword, username, is_instructor, image, description });
       res.status(201).json({ data: newUser });
@@ -68,9 +67,11 @@ router.post('/login', async (req, res, next) => {
         const payload = {
           email: userInDB.email,
           username: userInDB.username,
-          role: userInDB.role,
-          _id: userInDB._id
+          _id: userInDB._id,
+          is_instructor: userInDB.is_instructor 
+
         }
+        console.log(payload)
         // Use the jwt middleware to create de token
         const authToken = jwt.sign(
           payload,
