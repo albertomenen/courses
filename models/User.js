@@ -37,6 +37,21 @@ const UserSchema = new Schema({
     //ref: "Instructor",
     //required: true
   },
+  description: {
+    type: String
+  },
+
+  // Agregar luego la relacion con los cursos. 
+  
+  // enrolledCourses: [{
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "Course"
+  // }],
+
+  // purchasedCourses: [{
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "Course"
+  // }],
 
   
 },

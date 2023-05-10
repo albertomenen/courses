@@ -11,7 +11,7 @@ const saltRounds = 10;
 
 
 router.post('/signup', async (req, res, next) => {
-  const { email, password, username } = req.body;
+  const { email, password, username, is_instructor, image, description } = req.body;
   if (email === "" || password === "" || username === "") {
     res.status(400).json({ message: 'Please fill all the fields to register' });
     return;
@@ -36,7 +36,7 @@ router.post('/signup', async (req, res, next) => {
       const salt = bcrypt.genSaltSync(saltRounds);
       console.log("Helo")
       const hashedPassword = bcrypt.hashSync(password, salt);
-      const newUser = await User.create({ email, hashedPassword, username });
+      const newUser = await User.create({ email, hashedPassword, username, is_instructor, image, description });
       res.status(201).json({ data: newUser });
     }
   } catch (error) {
