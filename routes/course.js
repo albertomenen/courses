@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Course = require ("../models/Course")
 const { isAuthenticated } = require('../middlewares/jwt'); 
+const fileUploader = require("../config/cloudinary.config")
 
 
 
@@ -37,11 +38,11 @@ router.get('/:id', async (req, res, next) => {
 // @route   POST /Course
 // @access  Private
 
-router.post('/new', isAuthenticated, async (req, res, next) => {
-  const { title, description, price, instructorId } = req.body;
+router.post('/new', isAuthenticated, fileUploader.single("course-cover-image") ,async (req, res, next) => {
+  const { title, description, price, instructorId, imageUrl } = req.body;
   const userId = req.payload;
 
-  await Course.create({ title, description, price, instructor: instructorId })
+  await Course.create({ title, description, price, instructor: instructorId, imageUrl })
     .then(response => res.json(response))
     .catch(err => res.json(err));
 });
