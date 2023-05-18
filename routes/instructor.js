@@ -48,9 +48,9 @@ router.get('/:id/courses', isAuthenticated, async (req, res, next) => {
 // @route   POST /instructor/new
 // @access  Private
 router.post('/new', isAuthenticated, async (req, res, next) => {
-  const { userId } = req.body;
+  const { userId, name } = req.body;
 
-  await Instructor.create({ user: userId })
+  await Instructor.create({ user: userId, name })
     .then(response => res.json(response))
     .catch(err => res.json(err));
 });
