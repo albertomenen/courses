@@ -21,7 +21,7 @@ router.get('/', isAuthenticated, async (req, res, next) => {
 router.get('/:id', isAuthenticated, async (req, res, next) => {
   try {
     const { id } = req.params;
-    const instructor = await Instructor.findById(id);
+    const instructor = await Instructor.findById(id).populate("user");
     if (!instructor) {
       return res.status(404).json({ message: 'Instructor not found' });
     }
@@ -48,9 +48,18 @@ router.get('/:id/courses', isAuthenticated, async (req, res, next) => {
 // @route   POST /instructor/new
 // @access  Private
 router.post('/new', isAuthenticated, async (req, res, next) => {
-  const { userId, name } = req.body;
-
-  await Instructor.create({ user: userId, name })
+  const { userId, name, surname, profilePic, bio, credentials, website, socialLinks, email } = req.body;
+  
+  await Instructor.create({ user: userId,
+     name,
+    surname,
+    profilePic,
+    bio,
+    credentials,
+    website,
+    socialLinks,
+    email
+ })
     .then(response => res.json(response))
     .catch(err => res.json(err));
 });
