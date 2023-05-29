@@ -7,6 +7,8 @@ const CourseSchema = new Schema (
       title: String,
       description: String,
       price: Number,
+      university: String,
+      universityLogo: String,
 
       instructor: {
         type: Schema.Types.ObjectId,

@@ -38,10 +38,10 @@ router.get('/:id', async (req, res, next) => {
 // @access  Private
 
 router.post('/new', isAuthenticated, async (req, res, next) => {
-  const { title, description, price, instructor } = req.body;
+  const { title, description, price, instructor, university, universityLogo } = req.body;
   const userId = req.payload;
 
-  await Course.create({ title, description, price, instructor })
+  await Course.create({ title, description, price, instructor, university, universityLogo })
     .then(response => res.json(response))
     .catch(err => res.json(err));
 });
