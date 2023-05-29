@@ -10,6 +10,7 @@ const CourseSchema = new Schema (
       university: String,
       universityLogo: String,
       imageUrl: String,
+      instructorName: String,
 
 
       instructor: {
